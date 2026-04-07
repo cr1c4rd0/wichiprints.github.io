@@ -14,7 +14,7 @@
     --c-personalizado:linear-gradient(135deg, #43e97b, #38f9d7);
 }
 
-body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; padding-top: 70px; padding-bottom: 60px; }
+body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; padding-top: 130px; padding-bottom: 60px; }
 
 /* ══════════════════════════════════════
    HEADER
@@ -111,6 +111,51 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; paddi
 .cat-nav-btn.active::after {
     left: 16px; right: 16px;
 }
+
+/* ── SEARCH BAR ── */
+.header-search {
+    border-top: 1px solid rgba(0,0,0,0.07);
+}
+
+.search-wrap {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 100px;
+    padding: 8px 16px 8px 38px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    background: #f7f7f9;
+    color: #111;
+    outline: none;
+    transition: border-color var(--tr), box-shadow var(--tr);
+}
+
+.search-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+    background: #fff;
+}
+
+.search-input::placeholder { color: #bbb; }
+
+/* quitar el botón X nativo en algunos browsers */
+.search-input::-webkit-search-cancel-button { display: none; }
 
 /* desktop: hide mobile dropdown */
 @media (min-width: 576px) {

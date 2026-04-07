@@ -1,6 +1,20 @@
-function renderCards(filter = 'all') {
+let _activeCategory = 'all';
+let _activeSearch = '';
+
+function renderCards(filter, search) {
+    if (filter !== undefined) _activeCategory = filter;
+    if (search !== undefined) _activeSearch = search;
+
+    const term = _activeSearch.toLowerCase().trim();
+    let list = _activeCategory === 'all' ? [...products] : products.filter(p => p.category === _activeCategory);
+    if (term) {
+        list = list.filter(p =>
+            p.title.toLowerCase().includes(term) ||
+            p.desc.toLowerCase().includes(term)
+        );
+    }
+
     const grid = document.getElementById('catalogGrid');
-    const list = filter === 'all' ? products : products.filter(p => p.category === filter);
 
     if (!list.length) {
         grid.innerHTML = `
@@ -37,10 +51,14 @@ function renderCards(filter = 'all') {
     }).join('');
 }
 
+function searchProducts(term) {
+    renderCards(undefined, term);
+}
+
 function filterCards(category, btn) {
     document.querySelectorAll('.cat-nav-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    renderCards(category);
+    renderCards(category, undefined);
 
     // cerrar nav en móvil
     const nav    = document.getElementById('catNav');
