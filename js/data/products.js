@@ -2,7 +2,7 @@ const products = [
     // ── POKEBALLS ──────────────────────────────────────────────────
     {
         id: 1,
-        title: 'Glaceon Chibi',
+        title: 'Glaceon',
         category: 'chibi',
         tag: 'Chibi',
         images: [
@@ -17,7 +17,7 @@ const products = [
     },
     {
         id: 2,
-        title: 'Pokeball Pikachu',
+        title: 'Pikachu',
         category: 'pokemon',
         tag: 'Pokeball',
         images: [
@@ -28,11 +28,11 @@ const products = [
             'images/pokeballs/0025-Pikachu/1770062799997.jpg',
         ],
         desc: 'Pokeball de Pikachu impresa en 3D con los colores amarillo y rojo del Pokémon más icónico. Pieza coleccionable ideal para fans y decoración.',
-        price: 45000,
+        price: 28000,
     },
     {
         id: 3,
-        title: 'Pokeball Miss Pikachu',
+        title: 'Miss Pikachu',
         category: 'pokemon',
         tag: 'Pokeball',
         images: [
@@ -43,11 +43,11 @@ const products = [
             'images/pokeballs/0025-Miss Pikachu/IMG_20260103_170255.jpg',
         ],
         desc: 'Pokeball edición Miss Pikachu impresa en 3D. Diseño único con los colores y accesorios de la versión femenina del Pokémon. Perfecta para coleccionistas.',
-        price: 45000,
+        price: 28000,
     },
     {
         id: 4,
-        title: 'Pokeball Gastly',
+        title: 'Gastly',
         category: 'pokemon',
         tag: 'Pokeball',
         images: [
@@ -58,11 +58,11 @@ const products = [
             'images/pokeballs/0092-Gastly/IMG_20260106_120208.jpg',
         ],
         desc: 'Pokeball de Gastly impresa en 3D con tonos morados y negros del Pokémon fantasma. Pieza coleccionable perfecta para los fans del tipo Veneno/Fantasma.',
-        price: 45000,
+        price: 33600,
     },
     {
         id: 5,
-        title: 'Pokeball Gengar',
+        title: 'Gengar',
         category: 'pokemon',
         tag: 'Pokeball',
         images: [
@@ -73,7 +73,37 @@ const products = [
             'images/pokeballs/0094-Gengar/IMG_20260104_121024.jpg',
         ],
         desc: 'Pokeball de Gengar impresa en 3D con el icónico morado oscuro del Pokémon más querido del tipo Fantasma. Ideal para decoración y coleccionistas.',
-        price: 45000,
+        price: 31500,
+    },
+    {
+        id: 6,
+        title: 'Arcanine',
+        category: 'pokemon',
+        tag: 'Pokeball',
+        images: [
+            'images/pokeballs/0059-Arcanine/Gemini_Generated_Image_s1mh4ds1mh4ds1mh.png',
+            'images/pokeballs/0059-Arcanine/IMG_20260210_101650.jpg',
+            'images/pokeballs/0059-Arcanine/IMG_20260210_101657.jpg',
+            'images/pokeballs/0059-Arcanine/IMG_20260210_101705.jpg',
+            'images/pokeballs/0059-Arcanine/IMG_20260210_101713.jpg',
+        ],
+        desc: 'Pokeball de Arcanine impresa en 3D con los tonos naranjas y negros del Pokémon Legendario de tipo Fuego. Pieza coleccionable ideal para fans.',
+        price: 50750,
+    },
+    {
+        id: 7,
+        title: 'Charmander',
+        category: 'pokemon',
+        tag: 'Pokeball',
+        images: [
+            'images/pokeballs/0004-Charmander/1773097096135.jpg',
+            'images/pokeballs/0004-Charmander/IMG_20260309_174823.jpg',
+            'images/pokeballs/0004-Charmander/IMG_20260309_174830.jpg',
+            'images/pokeballs/0004-Charmander/IMG_20260309_174837.jpg',
+            'images/pokeballs/0004-Charmander/IMG_20260309_174843.jpg',
+        ],
+        desc: 'Pokeball de Charmander impresa en 3D con los tonos naranja y rojo del clásico Pokémon de tipo Fuego. Pieza coleccionable perfecta para fans de la primera generación.',
+        price: 28000,
     },
 
 
