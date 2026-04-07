@@ -26,6 +26,7 @@ function renderCards(filter = 'all') {
                     <span class="badge ${badgeClass} mb-2 align-self-start">${p.tag}</span>
                     <h5 class="card-title">${p.title}</h5>
                     <p class="card-text flex-grow-1">${p.desc}</p>
+                    ${p.price != null ? `<div class="product-price mt-2">${formatPrice(p.price)}</div>` : ''}
                     <button class="btn btn-whatsapp mt-3 w-100"
                             onclick="event.stopPropagation(); openModal(${p.id})">
                         <i class="fab fa-whatsapp me-2"></i>Solicitar por WhatsApp

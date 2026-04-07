@@ -12,6 +12,7 @@ const products = [
             'images/pokeballs/0471-Glaceon/IMG_20260407_110112.jpg',
         ],
         desc: 'Pokeball de Glaceon impresa en 3D con detalle de alta resolución. Pieza coleccionable pintada a mano con los colores característicos del Pokémon de tipo Hielo. Perfecta para fans y coleccionistas.',
+        price: 45000,
     },
     // Próximos productos:
     // { id: 2, title: '...', category: 'pokemon|decoracion|figuras|utilidad|personalizado', tag: '...', images: [], desc: '...' },

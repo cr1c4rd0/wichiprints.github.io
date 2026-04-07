@@ -180,6 +180,27 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
 .product-card .card-text  { font-size: 0.83rem; color: #666; line-height: 1.55; }
 
 /* ══════════════════════════════════════
+   PRICE
+══════════════════════════════════════ */
+.product-price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7209b7, #3a86ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-price {
+    font-size: 1.6rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #7209b7, #3a86ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ══════════════════════════════════════
    WA BUTTON
 ══════════════════════════════════════ */
 .btn-whatsapp {

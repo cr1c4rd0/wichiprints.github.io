@@ -17,5 +17,13 @@ function openModal(id) {
     document.getElementById('qtyInput').value         = 1;
     document.getElementById('extraNote').value        = '';
 
+    const priceEl = document.getElementById('modalPrice');
+    if (currentProduct.price != null) {
+        priceEl.textContent = formatPrice(currentProduct.price);
+        priceEl.classList.remove('d-none');
+    } else {
+        priceEl.classList.add('d-none');
+    }
+
     bsModal.show();
 }

@@ -8,8 +8,9 @@ function buildWaLink(e) {
     const note = document.getElementById('extraNote').value.trim();
 
     let msg = `Hola Wichi Prints! 👋\n\nEstoy interesado/a en:\n\n🖨️ *${currentProduct.title}*\n📝 ${currentProduct.desc}\n🔢 Cantidad: *${qty}*`;
+    if (currentProduct.price != null) msg += `\n💰 Precio unitario: *${formatPrice(currentProduct.price)}*`;
     if (note) msg += `\n📌 Especificaciones: ${note}`;
-    msg += `\n\n¿Me pueden dar más información y precio? 😊`;
+    msg += `\n\n¿Me pueden confirmar disponibilidad? 😊`;
 
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
