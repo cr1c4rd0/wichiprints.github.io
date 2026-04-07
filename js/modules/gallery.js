@@ -1,6 +1,6 @@
 let currentSlide = 0;
 
-export function buildGallery(images, icon = '🖨️') {
+function buildGallery(images, icon = '🖨️') {
     const container = document.getElementById('modalGallery');
     currentSlide = 0;
 
@@ -32,7 +32,7 @@ export function buildGallery(images, icon = '🖨️') {
     container.innerHTML = slides + arrows + dots;
 }
 
-export function slideGallery(dir) {
+function slideGallery(dir) {
     const slides = document.querySelectorAll('.gallery-slide');
     const dots   = document.querySelectorAll('.gallery-dot');
     slides[currentSlide].classList.remove('active');
@@ -42,7 +42,7 @@ export function slideGallery(dir) {
     dots[currentSlide]?.classList.add('active');
 }
 
-export function goSlide(index) {
+function goSlide(index) {
     const slides = document.querySelectorAll('.gallery-slide');
     const dots   = document.querySelectorAll('.gallery-dot');
     slides[currentSlide].classList.remove('active');

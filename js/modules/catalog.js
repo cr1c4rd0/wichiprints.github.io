@@ -1,4 +1,4 @@
-export function renderCards(products, filter = 'all') {
+function renderCards(filter = 'all') {
     const grid = document.getElementById('catalogGrid');
     const list = filter === 'all' ? products : products.filter(p => p.category === filter);
 
@@ -34,8 +34,8 @@ export function renderCards(products, filter = 'all') {
     }).join('');
 }
 
-export function filterCards(products, category, btn) {
+function filterCards(category, btn) {
     document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    renderCards(products, category);
+    renderCards(category);
 }

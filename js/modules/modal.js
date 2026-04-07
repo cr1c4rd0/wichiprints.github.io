@@ -1,17 +1,11 @@
-import { buildGallery } from './gallery.js';
-
 let bsModal = null;
 let currentProduct = null;
 
-export function initModal() {
+function initModal() {
     bsModal = new bootstrap.Modal(document.getElementById('productModal'));
 }
 
-export function getCurrentProduct() {
-    return currentProduct;
-}
-
-export function openModal(id, products) {
+function openModal(id) {
     currentProduct = products.find(p => p.id === id);
     if (!currentProduct) return;
 
