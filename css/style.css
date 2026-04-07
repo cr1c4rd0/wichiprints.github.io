@@ -8,18 +8,21 @@
 
     --c-all:          linear-gradient(135deg, #667eea, #764ba2);
     --c-pokemon:      linear-gradient(135deg, #FFD700, #FF6B35);
+    --c-chibi:        linear-gradient(135deg, #DA22FF, #9733EE);
     --c-decoracion:   linear-gradient(135deg, #00C6FF, #0072FF);
-    --c-figuras:      linear-gradient(135deg, #DA22FF, #9733EE);
     --c-utilidad:     linear-gradient(135deg, #f093fb, #f5576c);
     --c-personalizado:linear-gradient(135deg, #43e97b, #38f9d7);
 }
 
-body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
+body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; padding-top: 70px; padding-bottom: 60px; }
 
 /* ══════════════════════════════════════
    HEADER
 ══════════════════════════════════════ */
-.site-header { backdrop-filter: blur(12px); background: rgba(255,255,255,0.92) !important; }
+.site-header {
+    background: #fff !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
 .site-header .logo-wrap img { height: 50px; }
 
 .tagline-pill {
@@ -31,6 +34,97 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
     border-radius: 100px;
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: #fff;
+}
+
+/* hamburger */
+.nav-toggle {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    background: none; border: none; padding: 4px; cursor: pointer; width: 34px;
+}
+.nav-toggle span {
+    display: block; height: 2px; border-radius: 2px;
+    background: #111; transition: all var(--tr);
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── CATEGORY NAV ── */
+.cat-nav {
+    background: #fff;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.cat-nav-list {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 2px;
+}
+.cat-nav-list::-webkit-scrollbar { display: none; }
+
+.cat-nav-btn {
+    background: none;
+    border: none;
+    color: rgba(0,0,0,0.45);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 13px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    transition: color var(--tr);
+    letter-spacing: 0.02em;
+}
+
+.cat-nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; right: 50%;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    transition: left var(--tr), right var(--tr);
+}
+
+.cat-nav-btn:hover { color: rgba(0,0,0,0.9); }
+
+.cat-nav-btn[data-cat="all"].active::after,
+.cat-nav-btn[data-cat="all"]:hover::after         { background: var(--c-all); }
+.cat-nav-btn[data-cat="pokemon"].active::after,
+.cat-nav-btn[data-cat="pokemon"]:hover::after     { background: var(--c-pokemon); }
+.cat-nav-btn[data-cat="chibi"].active::after,
+.cat-nav-btn[data-cat="chibi"]:hover::after       { background: var(--c-chibi); }
+.cat-nav-btn[data-cat="decoracion"].active::after,
+.cat-nav-btn[data-cat="decoracion"]:hover::after  { background: var(--c-decoracion); }
+.cat-nav-btn[data-cat="utilidad"].active::after,
+.cat-nav-btn[data-cat="utilidad"]:hover::after    { background: var(--c-utilidad); }
+.cat-nav-btn[data-cat="personalizado"].active::after,
+.cat-nav-btn[data-cat="personalizado"]:hover::after { background: var(--c-personalizado); }
+
+.cat-nav-btn.active {
+    color: #111;
+}
+.cat-nav-btn.active::after {
+    left: 16px; right: 16px;
+}
+
+/* desktop: hide mobile dropdown */
+@media (min-width: 576px) {
+    .cat-nav { display: none; }
+}
+
+/* mobile: nav desplegable */
+@media (max-width: 575px) {
+    .cat-nav-list { flex-direction: column; gap: 0; }
+    .cat-nav-btn  { width: 100%; text-align: left; padding: 12px 20px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .cat-nav-btn::after { display: none; }
+    .cat-nav-btn.active { color: #111; background: rgba(0,0,0,0.05); }
+    .cat-nav { max-height: 0; transition: max-height 0.35s ease; }
+    .cat-nav.open { max-height: 400px; }
 }
 
 /* ══════════════════════════════════════
@@ -92,34 +186,6 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
     z-index: 1;
 }
 
-/* ══════════════════════════════════════
-   FILTER BAR
-══════════════════════════════════════ */
-.filters-bar { overflow-x: auto; scrollbar-width: none; flex-wrap: nowrap; }
-.filters-bar::-webkit-scrollbar { display: none; }
-
-.btn-filter {
-    border: 2px solid #e0e0e0;
-    border-radius: 100px;
-    padding: 7px 20px;
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: #555;
-    background: #fff;
-    white-space: nowrap;
-    transition: all var(--tr);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-.btn-filter:hover:not(.active) { border-color: #bbb; color: #111; transform: translateY(-1px); }
-
-.btn-filter[data-cat="all"].active          { background: var(--c-all); }
-.btn-filter[data-cat="pokemon"].active      { background: var(--c-pokemon); }
-.btn-filter[data-cat="decoracion"].active   { background: var(--c-decoracion); }
-.btn-filter[data-cat="figuras"].active      { background: var(--c-figuras); }
-.btn-filter[data-cat="utilidad"].active     { background: var(--c-utilidad); }
-.btn-filter[data-cat="personalizado"].active{ background: var(--c-personalizado); }
-
-.btn-filter.active { border-color: transparent; color: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
 
 /* ══════════════════════════════════════
    PRODUCT CARD
@@ -148,7 +214,7 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
 .product-card::before { content: ''; display: block; height: 5px; }
 .product-card[data-category="pokemon"]::before       { background: var(--c-pokemon); }
 .product-card[data-category="decoracion"]::before    { background: var(--c-decoracion); }
-.product-card[data-category="figuras"]::before       { background: var(--c-figuras); }
+.product-card[data-category="chibi"]::before         { background: var(--c-chibi); }
 .product-card[data-category="utilidad"]::before      { background: var(--c-utilidad); }
 .product-card[data-category="personalizado"]::before { background: var(--c-personalizado); }
 
@@ -169,7 +235,7 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
 /* category badge */
 .badge-pokemon      { background: linear-gradient(135deg,#FFD700,#FF6B35) !important; color:#fff !important; }
 .badge-decoracion   { background: linear-gradient(135deg,#00C6FF,#0072FF) !important; color:#fff !important; }
-.badge-figuras      { background: linear-gradient(135deg,#DA22FF,#9733EE) !important; color:#fff !important; }
+.badge-chibi        { background: linear-gradient(135deg,#DA22FF,#9733EE) !important; color:#fff !important; }
 .badge-utilidad     { background: linear-gradient(135deg,#f093fb,#f5576c) !important; color:#fff !important; }
 .badge-personalizado{ background: linear-gradient(135deg,#43e97b,#38f9d7) !important; color:#111 !important; }
 .badge-default      { background: #6c757d !important; color:#fff !important; }
@@ -329,6 +395,13 @@ body { font-family: 'Inter', sans-serif; background: #f3f4fb; color: #111; }
 /* ══════════════════════════════════════
    FOOTER
 ══════════════════════════════════════ */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020;
+}
 .site-footer::before {
     content: '';
     display: block;

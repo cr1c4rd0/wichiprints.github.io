@@ -23,34 +23,52 @@
 
 <body>
 
-    <!-- ── HEADER ── -->
-    <header class="site-header sticky-top border-bottom shadow-sm">
-        <div class="container-fluid px-4 py-3 d-flex align-items-center justify-content-between">
-            <div class="logo-wrap">
-                <img src="images/Logo en blanco y neg.png" alt="Wichi Prints">
+    <!-- ── HEADER + NAV ── -->
+    <header class="site-header fixed-top shadow-sm">
+
+        <!-- Top bar: logo + desktop nav + hamburger -->
+        <div class="header-top">
+            <div class="container-fluid px-4 py-2 d-flex align-items-center gap-2">
+                <div class="logo-wrap flex-shrink-0">
+                    <img src="images/marca/LogoHorizontal.png" alt="Wichi Prints">
+                </div>
+
+                <!-- Desktop nav (inline) -->
+                <ul class="cat-nav-list d-none d-sm-flex mb-0 ms-auto">
+                    <li><button class="cat-nav-btn active" data-cat="all"          onclick="filterCards('all', this)">Todos</button></li>
+                    <li><button class="cat-nav-btn"        data-cat="pokemon"       onclick="filterCards('pokemon', this)">Pokeball</button></li>
+                    <li><button class="cat-nav-btn"        data-cat="chibi"         onclick="filterCards('chibi', this)">Chibi</button></li>
+                    <li><button class="cat-nav-btn"        data-cat="personalizado" onclick="filterCards('personalizado', this)">Personalizado</button></li>
+                </ul>
+
+                <!-- Hamburger (mobile) -->
+                <button class="nav-toggle d-sm-none ms-auto" onclick="toggleNav(this)" aria-label="Menú">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
-            <span class="tagline-pill d-none d-sm-block">Impresión 3D</span>
         </div>
+
+        <!-- Mobile dropdown nav -->
+        <nav class="cat-nav" id="catNav">
+            <div class="container-fluid px-4">
+                <ul class="cat-nav-list">
+                    <li><button class="cat-nav-btn" data-cat="all"          onclick="filterCards('all', this)">Todos</button></li>
+                    <li><button class="cat-nav-btn" data-cat="pokemon"       onclick="filterCards('pokemon', this)">Pokeball</button></li>
+                    <li><button class="cat-nav-btn" data-cat="chibi"         onclick="filterCards('chibi', this)">Chibi</button></li>
+                    <li><button class="cat-nav-btn" data-cat="personalizado" onclick="filterCards('personalizado', this)">Personalizado</button></li>
+                </ul>
+            </div>
+        </nav>
+
     </header>
 
     <!-- ── HERO ── -->
     <section class="hero">
         <div class="container">
             <h1 class="mb-2">Catálogo <span class="gradient-text">Wichi Prints</span></h1>
-            <p class="mb-0">Objetos únicos impresos en 3D. Elige tu producto, indica la cantidad y escríbenos por
-                WhatsApp.</p>
+            <p class="mb-0">Objetos únicos impresos en 3D. Elige tu producto, indica la cantidad y escríbenos por WhatsApp.</p>
         </div>
     </section>
-
-    <!-- ── FILTERS ── -->
-    <div class="filters-bar d-flex gap-2 px-4 pt-4 pb-2">
-        <button class="btn btn-filter active" data-cat="all"           onclick="filterCards('all', this)">Todos</button>
-        <button class="btn btn-filter"        data-cat="pokemon"        onclick="filterCards('pokemon', this)">Pokémon</button>
-        <button class="btn btn-filter"        data-cat="decoracion"     onclick="filterCards('decoracion', this)">Decoración</button>
-        <button class="btn btn-filter"        data-cat="figuras"        onclick="filterCards('figuras', this)">Figuras</button>
-        <button class="btn btn-filter"        data-cat="utilidad"       onclick="filterCards('utilidad', this)">Utilidad</button>
-        <button class="btn btn-filter"        data-cat="personalizado"  onclick="filterCards('personalizado', this)">Personalizado</button>
-    </div>
 
     <!-- ── CATALOG GRID ── -->
     <div class="container-xl px-4 pb-5">
@@ -107,8 +125,7 @@
     <!-- ── FOOTER ── -->
     <footer class="site-footer bg-black text-secondary text-center py-4 small">
         <p class="mb-0">
-            © 2026 <strong class="text-white">Wichi Prints</strong> · Impresión 3D ·
-            <a href="https://wa.me/573332830125" target="_blank">+57 333 283 0125</a>
+            © 2026 <strong class="text-white">Wichi Prints</strong> · Impresión 3D
         </p>
     </footer>
 

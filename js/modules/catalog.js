@@ -38,7 +38,15 @@ function renderCards(filter = 'all') {
 }
 
 function filterCards(category, btn) {
-    document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.cat-nav-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderCards(category);
+
+    // cerrar nav en móvil
+    const nav    = document.getElementById('catNav');
+    const toggle = document.querySelector('.nav-toggle');
+    if (nav && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle && toggle.classList.remove('open');
+    }
 }
