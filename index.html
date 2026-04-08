@@ -41,8 +41,13 @@
                     <li><button class="cat-nav-btn"        data-cat="personalizado" onclick="filterCards('personalizado', this)">Personalizado</button></li>
                 </ul>
 
+                <!-- Dark mode toggle -->
+                <button class="theme-toggle ms-auto" id="themeToggle" onclick="toggleTheme()" aria-label="Cambiar tema" title="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+
                 <!-- Hamburger (mobile) -->
-                <button class="nav-toggle d-sm-none ms-auto" onclick="toggleNav(this)" aria-label="Menú">
+                <button class="nav-toggle d-sm-none" onclick="toggleNav(this)" aria-label="Menú">
                     <span></span><span></span><span></span>
                 </button>
             </div>

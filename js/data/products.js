@@ -121,6 +121,21 @@ const products = [
         price: 28500,
     },
     {
+        id: 10,
+        title: 'Eevee',
+        category: 'chibi',
+        tag: 'Chibi',
+        images: [
+            'images/pokeballs/0133-Eevee/1773273639334.jpg',
+            'images/pokeballs/0133-Eevee/IMG_20260311_185428.jpg',
+            'images/pokeballs/0133-Eevee/IMG_20260311_185434.jpg',
+            'images/pokeballs/0133-Eevee/IMG_20260311_185440.jpg',
+            'images/pokeballs/0133-Eevee/IMG_20260311_185446.jpg',
+        ],
+        desc: 'Figura chibi inspirada en Eevee impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de la evolución. Perfecta para escritorios y vitrinas.',
+        price: 28000,
+    },
+    {
         id: 9,
         title: 'Chikorita',
         category: 'pokemon',
