@@ -48,9 +48,9 @@ function renderCards(filter, search) {
                     <h5 class="card-title">${p.title}</h5>
                     <p class="card-text flex-grow-1">${p.desc}</p>
                     ${p.price != null ? `<div class="product-price mt-2">${formatPrice(p.price)}</div>` : ''}
-                    <button class="btn btn-whatsapp mt-3 w-100"
-                            onclick="event.stopPropagation(); openModal(${p.id})">
-                        <i class="fab fa-whatsapp me-2"></i>Solicitar por WhatsApp
+                    <button class="btn btn-add-cart mt-3 w-100"
+                            onclick="event.stopPropagation(); addToCart(${p.id})">
+                        <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
                     </button>
                 </div>
             </div>

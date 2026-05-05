@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Pedido – Wichi Prints</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2fb;
+            color: #111;
+            min-height: 100vh;
+            padding: 32px 16px 48px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .invoice-wrap {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        /* ── ACTION BAR ── */
+        .action-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .action-bar .spacer {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .btn-back {
+            background: #fff;
+            color: #444;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-back:hover {
+            background: #f0f0f0;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+        }
+
+        .btn-wa:hover {
+            background: #1ebe5d;
+            transform: translateY(-1px);
+            color: #fff;
+        }
+
+        .btn-print {
+            background: linear-gradient(135deg, #7209b7, #3a86ff);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(114, 9, 183, 0.3);
+        }
+
+        .btn-print:hover {
+            opacity: 0.88;
+            transform: translateY(-1px);
+        }
+
+        /* ── INVOICE CARD ── */
+        .invoice {
+            background: #fff;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 8px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        /* ── INVOICE HEADER ── */
+        .invoice-header {
+            padding: 30px 36px;
+            background: linear-gradient(135deg, #0f0800 0%, #2a1800 50%, #1a0e00 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .invoice-header .logo img {
+            height: 46px;
+            filter: brightness(0) invert(1);
+        }
+
+        .invoice-info {
+            text-align: right;
+        }
+
+        .invoice-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 4px;
+        }
+
+        .invoice-title {
+            font-size: 1.45rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #FFD700, #FFA040, #FF6B35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .invoice-date {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 5px;
+        }
+
+        /* ── SECTION ── */
+        .invoice-section {
+            padding: 26px 36px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #bbb;
+            margin-bottom: 18px;
+        }
+
+        /* ── PRODUCTS TABLE ── */
+        .inv-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .inv-table thead tr {
+            background: #f8f8fb;
+            border-radius: 8px;
+        }
+
+        .inv-table th {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #888;
+            padding: 10px 14px;
+            text-align: left;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .inv-table th:nth-child(2) {
+            text-align: center;
+        }
+
+        .inv-table th:nth-child(3),
+        .inv-table th:nth-child(4) {
+            text-align: right;
+        }
+
+        .inv-table td {
+            padding: 14px 14px;
+            font-size: 0.88rem;
+            border-bottom: 1px solid #f5f5f5;
+            vertical-align: middle;
+        }
+
+        .inv-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .inv-table td:nth-child(2) {
+            text-align: center;
+        }
+
+        .inv-table td:nth-child(3),
+        .inv-table td:nth-child(4) {
+            text-align: right;
+        }
+
+        .product-cell {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .product-thumb {
+            width: 48px;
+            height: 48px;
+            border-radius: 9px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #f0f0f0;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 9px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .product-name {
+            font-weight: 700;
+            color: #111;
+            font-size: 0.9rem;
+        }
+
+        .product-cat {
+            font-size: 0.72rem;
+            color: #aaa;
+            margin-top: 2px;
+        }
+
+        .qty-pill {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #333;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .td-price {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .td-subtotal {
+            font-weight: 800;
+            color: #111;
+        }
+
+        /* ── TOTAL ── */
+        .total-bar {
+            padding: 22px 36px;
+            background: linear-gradient(135deg, #f7f2ff, #f0f5ff);
+            border-bottom: 1px solid #e8e0f8;
+        }
+
+        .discount-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        .total-numbers { display: flex; flex-direction: column; gap: 6px; }
+
+        .total-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .subtotal-line {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 500;
+        }
+        .discount-line {
+            font-size: 0.88rem;
+            color: #16a34a;
+            font-weight: 700;
+        }
+        .final-line {
+            padding-top: 10px;
+            margin-top: 4px;
+            border-top: 1px solid #d8d0f0;
+        }
+        .total-bar-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #888;
+        }
+        .total-bar-amount {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #7209b7, #3a86ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── PAYMENT GRID ── */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .pay-card {
+            border-radius: 14px;
+            padding: 22px 20px;
+            border: 2px solid transparent;
+        }
+
+        .pay-card.bancolombia {
+            background: linear-gradient(135deg, #FFFDE7, #FFF9C4);
+            border-color: #F5E040;
+        }
+
+        .pay-card.nequi {
+            background: linear-gradient(135deg, #F5EEFF, #EDE0FF);
+            border-color: #D8A8F8;
+        }
+
+        .pay-bank-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: 14px;
+        }
+
+        .bancolombia .pay-bank-tag {
+            background: #F5C518;
+            color: #5C4000;
+        }
+
+        .nequi .pay-bank-tag {
+            background: #6B21A8;
+            color: #fff;
+        }
+
+        .pay-field-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .pay-alias {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #111;
+            letter-spacing: 0.02em;
+        }
+
+        .pay-phone-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pay-phone {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #111;
+            letter-spacing: 0.04em;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(107, 33, 168, 0.12);
+            border: none;
+            color: #6B21A8;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background: rgba(107, 33, 168, 0.2);
+        }
+
+        .copy-btn.copied {
+            background: #25D366;
+            color: #fff;
+        }
+
+        .nequi-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 14px;
+            background: #6B21A8;
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 9px 16px;
+            border-radius: 9px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .nequi-cta:hover {
+            background: #581C87;
+            color: #fff;
+        }
+
+        .nequi-url-print {
+            display: none;
+            font-size: 0.72rem;
+            color: #6B21A8;
+            word-break: break-all;
+            margin-top: 8px;
+        }
+
+        /* ── STEPS ── */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1.5px solid #FFE0A0;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #FFFBF0;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 18px 20px;
+            border-bottom: 1px solid #FFE0A0;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FFD700, #FF6B35);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .step-body {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #111;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .step-desc strong {
+            color: #111;
+        }
+
+        .wa-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #25D366;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 3px 10px;
+            border-radius: 100px;
+            text-decoration: none;
+            margin-left: 4px;
+        }
+
+        .wa-chip:hover {
+            background: #1ebe5d;
+            color: #fff;
+        }
+
+        .wa-text-print {
+            display: none;
+            font-weight: 700;
+            color: #111;
+        }
+
+        /* ── INVOICE FOOTER ── */
+        .invoice-footer {
+            padding: 20px 36px;
+            text-align: center;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .invoice-footer::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, #f72585, #7209b7, #3a86ff, #4cc9f0, #f72585);
+            background-size: 300% auto;
+            margin-bottom: 18px;
+        }
+
+        .invoice-footer p {
+            font-size: 0.76rem;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .invoice-footer strong {
+            color: #888;
+        }
+
+        /* ── PRINT STYLES ── */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .invoice {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .invoice-wrap {
+                max-width: 100%;
+            }
+
+            .nequi-url-print {
+                display: block;
+            }
+
+            .wa-text-print {
+                display: inline;
+            }
+
+            .wa-chip {
+                display: none;
+            }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .invoice-header {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .invoice-info {
+                text-align: left;
+            }
+
+            .invoice-section {
+                padding: 20px;
+            }
+
+            .total-bar {
+                padding: 18px 20px;
+            }
+
+            .total-bar-amount {
+                font-size: 1.5rem;
+            }
+
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .inv-table th:nth-child(3) {
+                display: none;
+            }
+
+            .inv-table td:nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-wrap">
+
+        <!-- Action bar -->
+        <div class="action-bar">
+            <button class="btn btn-back" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left"></i> Volver al catálogo
+            </button>
+            <div class="spacer"></div>
+            <button class="btn btn-wa" onclick="sendCartToWA()">
+                <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+            </button>
+            <button class="btn btn-print" onclick="window.print()">
+                <i class="fas fa-file-pdf"></i> Guardar / Imprimir PDF
+            </button>
+        </div>
+
+        <!-- Invoice -->
+        <div class="invoice">
+
+            <!-- Header -->
+            <div class="invoice-header">
+                <div class="logo">
+                    <img src="images/marca/LogoHorizontal.png" alt="Wichi Prints">
+                </div>
+                <div class="invoice-info">
+                    <div class="invoice-label">Documento de pedido</div>
+                    <div class="invoice-title">Resumen de Pedido</div>
+                    <div class="invoice-date" id="invoiceDate"></div>
+                </div>
+            </div>
+
+            <!-- Products -->
+            <div class="invoice-section">
+                <div class="section-label">Productos del pedido</div>
+                <table class="inv-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cant.</th>
+                            <th>Precio unit.</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceItems"></tbody>
+                </table>
+            </div>
+
+            <!-- Total -->
+            <div class="total-bar">
+                <div class="discount-banner" id="discountBanner" style="display:none">
+                    <i class="fas fa-tag"></i>
+                    <span id="discountBannerText"></span>
+                </div>
+                <div class="total-numbers">
+                    <div class="total-line subtotal-line" id="subtotalLine" style="display:none">
+                        <span>Subtotal</span>
+                        <span id="invoiceSubtotal"></span>
+                    </div>
+                    <div class="total-line discount-line" id="discountLine" style="display:none">
+                        <span id="discountLineLabel"></span>
+                        <span id="discountLineAmount"></span>
+                    </div>
+                    <div class="total-line final-line">
+                        <span class="total-bar-label" id="totalLabel">Total estimado del pedido</span>
+                        <span class="total-bar-amount" id="invoiceTotal"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment options -->
+            <div class="invoice-section">
+                <div class="section-label">Opciones de pago</div>
+                <div class="payment-grid">
+
+                    <!-- Bancolombia Bre-B -->
+                    <div class="pay-card bancolombia">
+                        <div class="pay-bank-tag">
+                            <i class="fas fa-university"></i> Llave · Bre-B
+                        </div>
+                        <div class="pay-field-label">Llave / Alias Bre-B</div>
+                        <div class="pay-alias">@VSB238</div>
+                    </div>
+
+                    <!-- Nequi -->
+                    <div class="pay-card nequi">
+                        <div class="pay-bank-tag">
+                            <i class="fas fa-mobile-alt"></i> Nequi
+                        </div>
+                        <div class="pay-field-label">Número de celular</div>
+                        <div class="pay-phone-row">
+                            <span class="pay-phone">300 444 3567</span>
+                            <button class="copy-btn no-print" id="copyBtn" onclick="copyPhone()">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <a class="nequi-cta no-print" href="https://clientes.nequi.com.co/recargas" target="_blank"
+                            rel="noopener">
+                            <i class="fas fa-external-link-alt"></i> Pagar con Nequi
+                        </a>
+                        <div class="nequi-url-print">
+                            Pagar en: clientes.nequi.com.co/recargas
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Steps -->
+            <div class="invoice-section">
+                <div class="section-label">Cómo completar tu pedido</div>
+                <div class="steps-list">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-body">
+                            <div class="step-title">Realiza el pago</div>
+                            <div class="step-desc">
+                                Transfiere el valor total del pedido por <strong>Bancolombia Bre-B</strong> al alias
+                                <strong>@VSB238</strong>,
+                                o por <strong>Nequi</strong> al número <strong>300 444 3567</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-body">
+                            <div class="step-title">Envía el comprobante de pago</div>
+                            <div class="step-desc">
+                                Una vez realizado el pago, envía el comprobante a nuestro WhatsApp
+                                <a class="wa-chip" href="https://wa.me/573332830125" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i> 333 283 0125
+                                </a>
+                                <span class="wa-text-print">333 283 0125</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-body">
+                            <div class="step-title">Iniciamos la fabricación 🖨️</div>
+                            <div class="step-desc">
+                                Una vez confirmado el pago, <strong>iniciamos el proceso de fabricación</strong> de tu
+                                pedido.
+                                Te notificaremos cuando esté listo para envío o retiro.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="invoice-footer">
+                <p><strong>Wichi Prints</strong> · Impresión 3D · © 2026</p>
+                <p>Este documento es un resumen de pedido y no constituye una factura fiscal.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/data/products.js"></script>
+    <script>
+        const WA_NUMBER = '573332830125';
+
+        function formatPrice(p) {
+            return p.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+        }
+
+        const cart = JSON.parse(localStorage.getItem('wichiCart') || '[]');
+        if (cart.length === 0) window.location.href = 'index.html';
+
+        // Date
+        document.getElementById('invoiceDate').textContent = new Date().toLocaleDateString('es-CO', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        // Render items
+        let grandTotal = 0;
+        document.getElementById('invoiceItems').innerHTML = cart.map(item => {
+            const sub = (item.price || 0) * item.qty;
+            grandTotal += sub;
+            const thumb = item.images?.length
+                ? `<img class="product-thumb" src="${item.images[0]}" alt="${item.title}">`
+                : `<div class="product-icon">${item.icon || '🖨️'}</div>`;
+            return `
+            <tr>
+                <td>
+                    <div class="product-cell">
+                        ${thumb}
+                        <div>
+                            <div class="product-name">${item.title}</div>
+                            <div class="product-cat">${item.tag || item.category}</div>
+                        </div>
+                    </div>
+                </td>
+                <td><span class="qty-pill">× ${item.qty}</span></td>
+                <td class="td-price">${item.price != null ? formatPrice(item.price) : '—'}</td>
+                <td class="td-subtotal">${item.price != null ? formatPrice(sub) : '—'}</td>
+            </tr>`;
+        }).join('');
+
+        // Discount logic
+        let discountPct = 0;
+        if (grandTotal >= 300000) discountPct = 10;
+        else if (grandTotal >= 200000) discountPct = 5;
+
+        const discountAmount = Math.round(grandTotal * discountPct / 100);
+        const finalTotal = grandTotal - discountAmount;
+
+        if (discountPct > 0) {
+            document.getElementById('discountBanner').style.display = 'inline-flex';
+            document.getElementById('discountBannerText').textContent =
+                `¡Descuento del ${discountPct}% aplicado automáticamente!`;
+            document.getElementById('subtotalLine').style.display = 'flex';
+            document.getElementById('invoiceSubtotal').textContent = formatPrice(grandTotal);
+            document.getElementById('discountLine').style.display = 'flex';
+            document.getElementById('discountLineLabel').textContent = `Descuento ${discountPct}%`;
+            document.getElementById('discountLineAmount').textContent = `− ${formatPrice(discountAmount)}`;
+            document.getElementById('totalLabel').textContent = 'Total a pagar';
+        }
+
+        document.getElementById('invoiceTotal').textContent = formatPrice(finalTotal);
+
+        // Copy phone
+        function copyPhone() {
+            navigator.clipboard.writeText('3004443567').then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerHTML = '<i class="fas fa-check"></i> ¡Copiado!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+                    btn.classList.remove('copied');
+                }, 2200);
+            });
+        }
+
+        // Send to WhatsApp
+        function sendCartToWA() {
+            let msg = `Hola Wichi Prints! 👋\n\nQuiero hacer el siguiente pedido:\n\n`;
+            cart.forEach((item, i) => {
+                msg += `${i + 1}. 🖨️ *${item.title}*\n   🔢 Cantidad: *${item.qty}*`;
+                if (item.price != null) msg += `\n   💰 Subtotal: *${formatPrice(item.price * item.qty)}*`;
+                msg += '\n\n';
+            });
+            if (discountPct > 0) {
+                msg += `🏷️ *Descuento ${discountPct}%: − ${formatPrice(discountAmount)}*\n`;
+            }
+            msg += `💳 *TOTAL A PAGAR: ${formatPrice(finalTotal)}*\n\n¿Me pueden confirmar disponibilidad y tiempo de entrega? 😊`;
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,6 +1,49 @@
 const products = [
     // ── CHIBI ──────────────────────────────────────────────────────
     {
+        id: 17,
+        title: 'Umbreon',
+        category: 'chibi',
+        tag: 'Chibi',
+        images: [
+            'images/chibi/0197-Umbreon/1-1773251741536.jpg',
+            'images/chibi/0197-Umbreon/IMG_20260309_183031.jpg',
+            'images/chibi/0197-Umbreon/IMG_20260309_183038.jpg',
+            'images/chibi/0197-Umbreon/IMG_20260309_183043.jpg',
+            'images/chibi/0197-Umbreon/IMG_20260309_183051.jpg',
+        ],
+        desc: 'Figura chibi inspirada en Umbreon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Siniestro. Perfecta para escritorios y vitrinas.',
+        price: 28000,
+    },
+    {
+        id: 16,
+        title: 'Jolteon',
+        category: 'chibi',
+        tag: 'Chibi',
+        images: [
+            'images/chibi/0135-Jolteon/1-Gemini_Generated_Image_8h33tt8h33tt8h33.jpg',
+            'images/chibi/0135-Jolteon/Gemini_Generated_Image_bmxsfobmxsfobmxs.jpg',
+            'images/chibi/0135-Jolteon/Gemini_Generated_Image_w48hpew48hpew48h.jpg',
+        ],
+        desc: 'Figura chibi inspirada en Jolteon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Eléctrico. Perfecta para escritorios y vitrinas.',
+        price: 28000,
+    },
+    {
+        id: 15,
+        title: 'Flareon',
+        category: 'chibi',
+        tag: 'Chibi',
+        images: [
+            'images/chibi/0136-Flareon/1-1773251807069.jpg',
+            'images/chibi/0136-Flareon/IMG_20260309_182948.jpg',
+            'images/chibi/0136-Flareon/IMG_20260309_182953.jpg',
+            'images/chibi/0136-Flareon/IMG_20260309_182959.jpg',
+            'images/chibi/0136-Flareon/IMG_20260309_183005.jpg',
+        ],
+        desc: 'Figura chibi inspirada en Flareon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Fuego. Perfecta para escritorios y vitrinas.',
+        price: 31200,
+    },
+    {
         id: 14,
         title: 'Sylveon',
         category: 'chibi',
@@ -12,7 +55,7 @@ const products = [
             'images/chibi/0700-Sylveon/IMG_20260311_105759.jpg',
             'images/chibi/0700-Sylveon/IMG_20260311_105808.jpg',
         ],
-        desc: 'Figura chibi inspirada en Sylveon impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de tipo Hada. Perfecta para escritorios y vitrinas.',
+        desc: 'Figura chibi inspirada en Sylveon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Hada. Perfecta para escritorios y vitrinas.',
         price: 35000,
     },
     {
@@ -27,7 +70,7 @@ const products = [
             'images/chibi/0470-Leafeon/IMG_20260311_105842.jpg',
             'images/chibi/0470-Leafeon/IMG_20260311_105848.jpg',
         ],
-        desc: 'Figura chibi inspirada en Leafeon impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de tipo Planta. Perfecta para escritorios y vitrinas.',
+        desc: 'Figura chibi inspirada en Leafeon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Planta. Perfecta para escritorios y vitrinas.',
         price: 28500,
     },
     {
@@ -42,7 +85,7 @@ const products = [
             'images/chibi/0196-Espeon/IMG_20260407_110033.jpg',
             'images/chibi/0196-Espeon/IMG_20260407_110039.jpg',
         ],
-        desc: 'Figura chibi inspirada en Espeon impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de tipo Psíquico. Perfecta para escritorios y vitrinas.',
+        desc: 'Figura chibi inspirada en Espeon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Psíquico. Perfecta para escritorios y vitrinas.',
         price: 28000,
     },
     {
@@ -57,7 +100,7 @@ const products = [
             'images/chibi/0134-Vaporeon/IMG_20260407_105957.jpg',
             'images/chibi/0134-Vaporeon/IMG_20260407_110002.jpg',
         ],
-        desc: 'Figura chibi inspirada en Vaporeon impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de tipo Agua. Perfecta para escritorios y vitrinas.',
+        desc: 'Figura chibi inspirada en Vaporeon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Agua. Perfecta para escritorios y vitrinas.',
         price: 35000,
     },
     {
@@ -72,7 +115,7 @@ const products = [
             'images/chibi/0471-Glaceon/IMG_20260407_110106.jpg',
             'images/chibi/0471-Glaceon/IMG_20260407_110112.jpg',
         ],
-        desc: 'Figura chibi inspirada en Glaceon impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de tipo Hielo. Perfecta para escritorios y vitrinas.',
+        desc: 'Figura chibi inspirada en Glaceon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Hielo. Perfecta para escritorios y vitrinas.',
         price: 30000,
     },
     {
@@ -87,7 +130,7 @@ const products = [
             'images/chibi/0133-Eevee/IMG_20260311_185440.jpg',
             'images/chibi/0133-Eevee/IMG_20260311_185446.jpg',
         ],
-        desc: 'Figura chibi inspirada en Eevee impresa en 3D y pintada a mano. Estilo adorable y compacto del Pokémon de la evolución. Perfecta para escritorios y vitrinas.',
+        desc: 'Figura chibi inspirada en Eevee impresa en 3D. Estilo adorable y compacto del Pokémon de la evolución. Perfecta para escritorios y vitrinas.',
         price: 28000,
     },
 
