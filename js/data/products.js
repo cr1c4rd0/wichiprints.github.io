@@ -137,6 +137,51 @@ const products = [
     // ── POKEBALLS ──────────────────────────────────────────────────
 
     {
+        id: 18,
+        title: 'Squirtle',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0007-Squirtle/1-Gemini_Generated_Image_h386sth386sth386.png',
+            'images/pokeballs/0007-Squirtle/IMG_20260506_094100.jpg',
+            'images/pokeballs/0007-Squirtle/IMG_20260506_094105.jpg',
+            'images/pokeballs/0007-Squirtle/IMG_20260506_094111.jpg',
+            'images/pokeballs/0007-Squirtle/IMG_20260506_094117.jpg',
+        ],
+        desc: '¡Squirtle, go! La WichiBall inspirada en Squirtle captura la frescura del pequeño Pokémon tortuga de tipo Agua. Sus inconfundibles lentes de sol y caparazón azul cobran vida en esta pieza impresa en 3D.',
+        price: 28000,
+    },
+    {
+        id: 19,
+        title: 'Exeggcute',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0102-Exeggcute/1-Gemini_Generated_Image_d3zxwmd3zxwmd3zx.png',
+            'images/pokeballs/0102-Exeggcute/IMG_20260208_100642.jpg',
+            'images/pokeballs/0102-Exeggcute/IMG_20260208_100658.jpg',
+            'images/pokeballs/0102-Exeggcute/IMG_20260208_100709.jpg',
+            'images/pokeballs/0102-Exeggcute/IMG_20260208_100726.jpg',
+        ],
+        desc: '¡Egg egg! La WichiBall inspirada en Exeggcute reúne el peculiar grupo de huevos del Pokémon de tipo Planta/Psíquico. Una pieza única y coleccionable impresa en 3D.',
+        price: 33250,
+    },
+    {
+        id: 20,
+        title: 'Exeggutor',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0103-Exeggutor/1-Gemini_Generated_Image_kib1h9kib1h9kib1.png',
+            'images/pokeballs/0103-Exeggutor/IMG_20260210_110532.jpg',
+            'images/pokeballs/0103-Exeggutor/IMG_20260210_110540.jpg',
+            'images/pokeballs/0103-Exeggutor/IMG_20260210_110553.jpg',
+            'images/pokeballs/0103-Exeggutor/IMG_20260210_110600.jpg',
+        ],
+        desc: '¡Exeggutor! La WichiBall inspirada en el alto Pokémon palmera de tipo Planta/Psíquico. Sus tres cabezas llenas de expresión hacen de esta pieza impresa en 3D un objeto verdaderamente único.',
+        price: 43400,
+    },
+    {
         id: 2,
         title: 'Pikachu',
         category: 'pokemon',
