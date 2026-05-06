@@ -137,6 +137,21 @@ const products = [
     // ── POKEBALLS ──────────────────────────────────────────────────
 
     {
+        id: 21,
+        title: 'Lucario',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0448-Lucario/1-Gemini_Generated_Image_p51d1tp51d1tp51d.png',
+            'images/pokeballs/0448-Lucario/IMG_20260506_095926.jpg',
+            'images/pokeballs/0448-Lucario/IMG_20260506_095933.jpg',
+            'images/pokeballs/0448-Lucario/IMG_20260506_095940.jpg',
+            'images/pokeballs/0448-Lucario/IMG_20260506_095947.jpg',
+        ],
+        desc: '¡Lucario! La WichiBall inspirada en el Pokémon Aura de tipo Lucha/Acero. Su elegante silueta azul y negra con las esferas de aura capturan toda la energía del guerrero más icónico de la cuarta generación.',
+        price: 30000,
+    },
+    {
         id: 18,
         title: 'Squirtle',
         category: 'pokemon',
