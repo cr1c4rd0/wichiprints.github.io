@@ -27,3 +27,24 @@ function openModal(id) {
 
     bsModal.show();
 }
+
+function addToCartFromModal() {
+    if (!currentProduct) return;
+    const qty = parseInt(document.getElementById('qtyInput').value) || 1;
+    for (let i = 0; i < qty; i++) addToCart(currentProduct.id);
+    bsModal.hide();
+}
+
+function shareProduct() {
+    if (!currentProduct) return;
+    const text = `¡Mira este producto de Wichi Prints! 🖨️\n*${currentProduct.title}*${currentProduct.price != null ? ' – ' + formatPrice(currentProduct.price) : ''}\n${currentProduct.desc}`;
+    if (navigator.share) {
+        navigator.share({ title: currentProduct.title, text });
+    } else {
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.querySelector('.btn-modal-share');
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => { btn.innerHTML = '<i class="fas fa-share-alt"></i>'; }, 2000);
+        });
+    }
+}

@@ -127,9 +127,12 @@
 
                 <!-- Footer -->
                 <div class="modal-footer border-0 pt-0 px-4 pb-4 gap-2">
-                    <a class="btn btn-whatsapp flex-grow-1" href="#" onclick="buildWaLink(event)">
-                        <i class="fab fa-whatsapp me-2"></i>Pedir por WhatsApp
-                    </a>
+                    <button class="btn btn-add-cart flex-grow-1" onclick="addToCartFromModal()">
+                        <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                    </button>
+                    <button class="btn btn-modal-share" onclick="shareProduct()" title="Compartir producto">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
 
