@@ -149,7 +149,7 @@ const products = [
             'images/pokeballs/0448-Lucario/IMG_20260506_095947.jpg',
         ],
         desc: '¡Lucario! La WichiBall inspirada en el Pokémon Aura de tipo Lucha/Acero. Su elegante silueta azul y negra con las esferas de aura capturan toda la energía del guerrero más icónico de la cuarta generación.',
-        price: 30000,
+        price: 29000,
     },
     {
         id: 18,
