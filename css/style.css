@@ -12,6 +12,7 @@
     --c-decoracion:   linear-gradient(135deg, #00C6FF, #0072FF);
     --c-utilidad:     linear-gradient(135deg, #f093fb, #f5576c);
     --c-personalizado:linear-gradient(135deg, #43e97b, #38f9d7);
+    --c-figures:      linear-gradient(135deg, #f953c6, #b91d73);
 
     /* Theme tokens – light */
     --bg-body:              #f3f4fb;
@@ -157,6 +158,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
 .cat-nav-btn[data-cat="utilidad"]:hover::after    { background: var(--c-utilidad); }
 .cat-nav-btn[data-cat="personalizado"].active::after,
 .cat-nav-btn[data-cat="personalizado"]:hover::after { background: var(--c-personalizado); }
+.cat-nav-btn[data-cat="figures"].active::after,
+.cat-nav-btn[data-cat="figures"]:hover::after       { background: var(--c-figures); }
 
 .cat-nav-btn.active {
     color: var(--text-nav-active);
@@ -315,6 +318,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
 .product-card[data-category="chibi"]::before         { background: var(--c-chibi); }
 .product-card[data-category="utilidad"]::before      { background: var(--c-utilidad); }
 .product-card[data-category="personalizado"]::before { background: var(--c-personalizado); }
+.product-card[data-category="figures"]::before       { background: var(--c-figures); }
 
 /* image */
 .card-img-wrap { aspect-ratio: 4/3; overflow: hidden; background: var(--bg-gallery); transition: background var(--tr); }
@@ -336,6 +340,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
 .badge-chibi        { background: linear-gradient(135deg,#DA22FF,#9733EE) !important; color:#fff !important; }
 .badge-utilidad     { background: linear-gradient(135deg,#f093fb,#f5576c) !important; color:#fff !important; }
 .badge-personalizado{ background: linear-gradient(135deg,#43e97b,#38f9d7) !important; color:#111 !important; }
+.badge-figures      { background: linear-gradient(135deg,#f953c6,#b91d73) !important; color:#fff !important; }
 .badge-default      { background: #6c757d !important; color:#fff !important; }
 
 /* card body */
