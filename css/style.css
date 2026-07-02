@@ -66,7 +66,7 @@
     --shadow-card-hover:    0 20px 50px rgba(0,0,0,0.6);
 }
 
-body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-primary); padding-top: 130px; padding-bottom: 60px; transition: background var(--tr), color var(--tr); }
+body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(--text-primary); padding-top: 160px; padding-bottom: 60px; transition: background var(--tr), color var(--tr); }
 
 /* ══════════════════════════════════════
    HEADER
@@ -212,6 +212,54 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
 
 /* quitar el botón X nativo en algunos browsers */
 .search-input::-webkit-search-cancel-button { display: none; }
+
+/* ── PROMO BANNER ── */
+.promo-banner {
+    background: linear-gradient(90deg, #ff6b35, #ff8c38, #ff6b35);
+    background-size: 200% auto;
+    animation: promoShine 6s linear infinite;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 7px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-nav);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(255, 107, 53, 0.15);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.promo-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+
+.promo-track span {
+    display: inline-block;
+    padding-left: 3rem; /* distance between repetitions */
+    white-space: nowrap;
+}
+
+.promo-banner:hover .promo-track {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-16.6666%, 0, 0);
+    }
+}
+
+@keyframes promoShine {
+    to { background-position: 200% center; }
+}
 
 /* desktop: hide mobile dropdown */
 @media (min-width: 576px) {

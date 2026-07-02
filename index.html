@@ -35,20 +35,27 @@
 
                 <!-- Desktop nav (inline) -->
                 <ul class="cat-nav-list d-none d-sm-flex mb-0 ms-auto">
-                    <li><button class="cat-nav-btn active" data-cat="all"          onclick="filterCards('all', this)">Todos</button></li>
-                    <li><button class="cat-nav-btn"        data-cat="pokemon"       onclick="filterCards('pokemon', this)">WichiBall</button></li>
-                    <li><button class="cat-nav-btn"        data-cat="chibi"         onclick="filterCards('chibi', this)">Chibi</button></li>
-                    <li><button class="cat-nav-btn"        data-cat="figures"       onclick="filterCards('figures', this)">Figuras</button></li>
-                    <li><button class="cat-nav-btn"        data-cat="personalizado" onclick="filterCards('personalizado', this)">Personalizado</button></li>
+                    <li><button class="cat-nav-btn active" data-cat="all"
+                            onclick="filterCards('all', this)">Todos</button></li>
+                    <li><button class="cat-nav-btn" data-cat="pokemon"
+                            onclick="filterCards('pokemon', this)">WichiBall</button></li>
+                    <li><button class="cat-nav-btn" data-cat="chibi" onclick="filterCards('chibi', this)">Chibi</button>
+                    </li>
+                    <li><button class="cat-nav-btn" data-cat="figures"
+                            onclick="filterCards('figures', this)">Figuras</button></li>
+                    <li><button class="cat-nav-btn" data-cat="personalizado"
+                            onclick="filterCards('personalizado', this)">Personalizado</button></li>
                 </ul>
 
                 <!-- Dark mode toggle -->
-                <button class="theme-toggle ms-auto" id="themeToggle" onclick="toggleTheme()" aria-label="Cambiar tema" title="Cambiar tema">
+                <button class="theme-toggle ms-auto" id="themeToggle" onclick="toggleTheme()" aria-label="Cambiar tema"
+                    title="Cambiar tema">
                     <i class="fas fa-moon"></i>
                 </button>
 
                 <!-- Cart button -->
-                <button class="cart-toggle" id="cartToggle" onclick="openCart()" aria-label="Ver carrito" title="Ver carrito">
+                <button class="cart-toggle" id="cartToggle" onclick="openCart()" aria-label="Ver carrito"
+                    title="Ver carrito">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-badge" id="cartBadge" style="display:none">0</span>
                 </button>
@@ -65,9 +72,27 @@
             <div class="container-fluid px-4 py-2">
                 <div class="search-wrap">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="search" id="searchInput" class="search-input"
-                        placeholder="Buscar producto..." oninput="searchProducts(this.value)" autocomplete="off">
+                    <input type="search" id="searchInput" class="search-input" placeholder="Buscar producto..."
+                        oninput="searchProducts(this.value)" autocomplete="off">
                 </div>
+            </div>
+        </div>
+
+        <!-- Promo Banner -->
+        <div class="promo-banner">
+            <div class="promo-track">
+                <span>¡Envío GRATIS en Pedidos Superiores a 200K! ✦ ¡Cada 100K de compra incluye un Mini-Chibi de
+                    regalo! ✦</span>
+                <span>¡Envío GRATIS en Pedidos Superiores a 200K! ✦ ¡Cada 100K de compra incluye un Mini-Chibi de
+                    regalo! ✦</span>
+                <span>¡Envío GRATIS en Pedidos Superiores a 200K! ✦ ¡Cada 100K de compra incluye un Mini-Chibi de
+                    regalo! ✦</span>
+                <span>¡Envío GRATIS en Pedidos Superiores a 200K! ✦ ¡Cada 100K de compra incluye un Mini-Chibi de
+                    regalo! ✦</span>
+                <span>¡Envío GRATIS en Pedidos Superiores a 200K! ✦ ¡Cada 100K de compra incluye un Mini-Chibi de
+                    regalo! ✦</span>
+                <span>¡Envío GRATIS en Pedidos Superiores a 200K! ✦ ¡Cada 100K de compra incluye un Mini-Chibi de
+                    regalo! ✦</span>
             </div>
         </div>
 
@@ -75,11 +100,16 @@
         <nav class="cat-nav" id="catNav">
             <div class="container-fluid px-4">
                 <ul class="cat-nav-list">
-                    <li><button class="cat-nav-btn" data-cat="all"          onclick="filterCards('all', this)">Todos</button></li>
-                    <li><button class="cat-nav-btn" data-cat="pokemon"       onclick="filterCards('pokemon', this)">WichiBall</button></li>
-                    <li><button class="cat-nav-btn" data-cat="chibi"         onclick="filterCards('chibi', this)">Chibi</button></li>
-                    <li><button class="cat-nav-btn" data-cat="figures"       onclick="filterCards('figures', this)">Figuras</button></li>
-                    <li><button class="cat-nav-btn" data-cat="personalizado" onclick="filterCards('personalizado', this)">Personalizado</button></li>
+                    <li><button class="cat-nav-btn" data-cat="all" onclick="filterCards('all', this)">Todos</button>
+                    </li>
+                    <li><button class="cat-nav-btn" data-cat="pokemon"
+                            onclick="filterCards('pokemon', this)">WichiBall</button></li>
+                    <li><button class="cat-nav-btn" data-cat="chibi" onclick="filterCards('chibi', this)">Chibi</button>
+                    </li>
+                    <li><button class="cat-nav-btn" data-cat="figures"
+                            onclick="filterCards('figures', this)">Figuras</button></li>
+                    <li><button class="cat-nav-btn" data-cat="personalizado"
+                            onclick="filterCards('personalizado', this)">Personalizado</button></li>
                 </ul>
             </div>
         </nav>
@@ -90,7 +120,8 @@
     <section class="hero">
         <div class="container">
             <h1 class="mb-2">Catálogo <span class="gradient-text">Wichi Prints</span></h1>
-            <p class="mb-0">Objetos únicos impresos en 3D. Elige tu producto, indica la cantidad y escríbenos por WhatsApp.</p>
+            <p class="mb-0">Objetos únicos impresos en 3D. Elige tu producto, indica la cantidad y escríbenos por
+                WhatsApp.</p>
         </div>
     </section>
 
@@ -132,7 +163,7 @@
                     <button class="btn btn-add-cart flex-grow-1" onclick="addToCartFromModal()">
                         <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
                     </button>
-<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
 
             </div>
@@ -146,7 +177,8 @@
     <div class="cart-panel" id="cartPanel">
         <div class="cart-panel-header">
             <h5 class="cart-panel-title"><i class="fas fa-shopping-cart me-2"></i>Carrito de compra</h5>
-            <button class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar carrito"><i class="fas fa-times"></i></button>
+            <button class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar carrito"><i
+                    class="fas fa-times"></i></button>
         </div>
 
         <!-- Empty state -->
@@ -189,7 +221,8 @@
     <footer class="site-footer bg-black text-secondary text-center py-3 small">
         <p class="mb-0">© 2026 <strong class="text-white">Wichi Prints</strong> · Impresión 3D</p>
         <p class="mb-0 mt-1" style="font-size:0.72rem;opacity:0.5;">
-            Creado por <a href="https://github.com/cr1c4rd0" target="_blank" rel="noopener" class="text-white text-decoration-none">Cristian Ricardo</a>
+            Creado por <a href="https://github.com/cr1c4rd0" target="_blank" rel="noopener"
+                class="text-white text-decoration-none">Cristian Ricardo</a>
         </p>
     </footer>
 
