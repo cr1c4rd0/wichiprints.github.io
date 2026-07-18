@@ -30,7 +30,7 @@ const products = [
             'images/chibi/0197-Umbreon/IMG_20260309_183051.jpg',
         ],
         desc: 'Figura chibi inspirada en Umbreon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Siniestro. Perfecta para escritorios y vitrinas.',
-        price: 28000,
+        price: 40000,
     },
     {
         id: 16,
@@ -43,7 +43,7 @@ const products = [
             'images/chibi/0135-Jolteon/Gemini_Generated_Image_w48hpew48hpew48h.jpg',
         ],
         desc: 'Figura chibi inspirada en Jolteon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Eléctrico. Perfecta para escritorios y vitrinas.',
-        price: 28000,
+        price: 40000,
     },
     {
         id: 15,
@@ -58,7 +58,7 @@ const products = [
             'images/chibi/0136-Flareon/IMG_20260309_183005.jpg',
         ],
         desc: 'Figura chibi inspirada en Flareon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Fuego. Perfecta para escritorios y vitrinas.',
-        price: 31200,
+        price: 40000,
     },
     {
         id: 14,
@@ -73,7 +73,7 @@ const products = [
             'images/chibi/0700-Sylveon/IMG_20260311_105808.jpg',
         ],
         desc: 'Figura chibi inspirada en Sylveon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Hada. Perfecta para escritorios y vitrinas.',
-        price: 35000,
+        price: 40000,
     },
     {
         id: 13,
@@ -88,7 +88,7 @@ const products = [
             'images/chibi/0470-Leafeon/IMG_20260311_105848.jpg',
         ],
         desc: 'Figura chibi inspirada en Leafeon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Planta. Perfecta para escritorios y vitrinas.',
-        price: 28500,
+        price: 40000,
     },
     {
         id: 12,
@@ -103,7 +103,7 @@ const products = [
             'images/chibi/0196-Espeon/IMG_20260407_110039.jpg',
         ],
         desc: 'Figura chibi inspirada en Espeon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Psíquico. Perfecta para escritorios y vitrinas.',
-        price: 28000,
+        price: 40000,
     },
     {
         id: 11,
@@ -118,7 +118,7 @@ const products = [
             'images/chibi/0134-Vaporeon/IMG_20260407_110002.jpg',
         ],
         desc: 'Figura chibi inspirada en Vaporeon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Agua. Perfecta para escritorios y vitrinas.',
-        price: 35000,
+        price: 40000,
     },
     {
         id: 1,
@@ -133,7 +133,7 @@ const products = [
             'images/chibi/0471-Glaceon/IMG_20260407_110112.jpg',
         ],
         desc: 'Figura chibi inspirada en Glaceon impresa en 3D. Estilo adorable y compacto del Pokémon de tipo Hielo. Perfecta para escritorios y vitrinas.',
-        price: 30000,
+        price: 40000,
     },
     {
         id: 10,
@@ -148,7 +148,7 @@ const products = [
             'images/chibi/0133-Eevee/IMG_20260311_185446.jpg',
         ],
         desc: 'Figura chibi inspirada en Eevee impresa en 3D. Estilo adorable y compacto del Pokémon de la evolución. Perfecta para escritorios y vitrinas.',
-        price: 28000,
+        price: 40000,
     },
 
     // ── POKEBALLS ──────────────────────────────────────────────────
@@ -166,7 +166,7 @@ const products = [
             'images/pokeballs/0448-Lucario/IMG_20260506_095947.jpg',
         ],
         desc: '¡Lucario! La WichiBall inspirada en el Pokémon Aura de tipo Lucha/Acero. Su elegante silueta azul y negra con las esferas de aura capturan toda la energía del guerrero más icónico de la cuarta generación.',
-        price: 29000,
+        price: 35000,
     },
     {
         id: 18,
@@ -181,7 +181,7 @@ const products = [
             'images/pokeballs/0007-Squirtle/IMG_20260506_094117.jpg',
         ],
         desc: '¡Squirtle, go! La WichiBall inspirada en Squirtle captura la frescura del pequeño Pokémon tortuga de tipo Agua. Sus inconfundibles lentes de sol y caparazón azul cobran vida en esta pieza impresa en 3D.',
-        price: 28000,
+        price: 35000,
     },
     {
         id: 19,
@@ -196,7 +196,7 @@ const products = [
             'images/pokeballs/0102-Exeggcute/IMG_20260208_100726.jpg',
         ],
         desc: '¡Egg egg! La WichiBall inspirada en Exeggcute reúne el peculiar grupo de huevos del Pokémon de tipo Planta/Psíquico. Una pieza única y coleccionable impresa en 3D.',
-        price: 33250,
+        price: 35000,
     },
     {
         id: 20,
@@ -211,7 +211,7 @@ const products = [
             'images/pokeballs/0103-Exeggutor/IMG_20260210_110600.jpg',
         ],
         desc: '¡Exeggutor! La WichiBall inspirada en el alto Pokémon palmera de tipo Planta/Psíquico. Sus tres cabezas llenas de expresión hacen de esta pieza impresa en 3D un objeto verdaderamente único.',
-        price: 43400,
+        price: 35000,
     },
     {
         id: 2,
@@ -226,7 +226,7 @@ const products = [
             'images/pokeballs/0025-Pikachu/1770062799997.jpg',
         ],
         desc: '¡Pika Pika! La WichiBall inspirada en Pikachu captura toda la energía eléctrica del Pokémon más famoso del mundo. Impresa en 3D con su inconfundible amarillo brillante.',
-        price: 28000,
+        price: 35000,
     },
     {
         id: 3,
@@ -241,7 +241,7 @@ const products = [
             'images/pokeballs/0025-Miss Pikachu/IMG_20260103_170255.jpg',
         ],
         desc: '¡Pika~ ♀! La WichiBall inspirada en Miss Pikachu celebra el lado más encantador del icónico Pokémon eléctrico. Edición especial con el detalle de la cola en corazón.',
-        price: 28000,
+        price: 35000,
     },
     {
         id: 4,
@@ -256,7 +256,7 @@ const products = [
             'images/pokeballs/0092-Gastly/IMG_20260106_120208.jpg',
         ],
         desc: 'Booo... La WichiBall inspiriada en Gastly emerge entre niebla tóxica y sombras. El Pokémon gas con su aura gaseosa morada cobra vida en esta pieza impresa en 3D.',
-        price: 33600,
+        price: 35000,
     },
     {
         id: 5,
@@ -271,7 +271,7 @@ const products = [
             'images/pokeballs/0094-Gengar/IMG_20260104_121024.jpg',
         ],
         desc: 'Heh heh heh... La WichiBall inspirada en Gengar esconde esa sonrisa traviesa en cada curva. El rey de las sombras y los sustos atrapado en una pieza impresa en 3D.',
-        price: 31500,
+        price: 35000,
     },
     {
         id: 6,
@@ -286,7 +286,7 @@ const products = [
             'images/pokeballs/0059-Arcanine/IMG_20260210_101713.jpg',
         ],
         desc: '¡Arcanine, go! La WichiBall del Pokémon Legendario de tipo Fuego ruge con sus llamas naranjas y negras. Tan magnífico como el Arcanine que guarda en su interior.',
-        price: 50750,
+        price: 35000,
     },
     {
         id: 7,
@@ -301,7 +301,7 @@ const products = [
             'images/pokeballs/0004-Charmander/IMG_20260309_174843.jpg',
         ],
         desc: 'Char char! La WichiBall inspirada en Charmander lleva la llama de la primera generación. La llamita de su cola nunca se apaga, igual que el amor de los fans por este clásico.',
-        price: 28000,
+        price: 35000,
     },
     {
         id: 8,
@@ -316,7 +316,7 @@ const products = [
             'images/pokeballs/0109-Koffing/IMG_20260107_140714.jpg',
         ],
         desc: '¡Koffing! La WichiBall inspirada en Koffing flota con actitud entre nubes tóxicas y ese gesto de felicidad único. El Pokémon más contento del tipo Veneno en tu colección.',
-        price: 28500,
+        price: 35000,
     },
     {
         id: 9,
@@ -331,7 +331,7 @@ const products = [
             'images/pokeballs/0152-Chikorita/IMG_20260219_171331.jpg',
         ],
         desc: '¡Chika chika! La WichiBall inspirada en Chikorita trae la frescura de la segunda generación. La hoja de su cabeza siempre verde, como el entusiasmo de los fans de Johto.',
-        price: 28000,
+        price: 35000,
     },
 
 
