@@ -15,6 +15,21 @@ const products = [
         desc: '¡Poyo! Figura de Kirby impresa en 3D. El héroe rosado de Dream Land en su versión más adorable y compacta. Perfecta para coleccionistas y fans del mundo de Nintendo.',
         price: 40000,
     },
+    {
+        id: 47,
+        title: 'Kirby Link',
+        category: 'figures',
+        tag: 'Figura',
+        images: [
+            'images/figuras/0002-Kirby Link/1-Kirby Link.png',
+            'images/figuras/0002-Kirby Link/IMG_20260718_161051.jpg',
+            'images/figuras/0002-Kirby Link/IMG_20260718_161100.jpg',
+            'images/figuras/0002-Kirby Link/IMG_20260718_161106.jpg',
+            'images/figuras/0002-Kirby Link/IMG_20260718_161112.jpg',
+        ],
+        desc: '¡Poyo! Figura de Kirby transformado en Link impresa en 3D. Perfecta para coleccionistas y fans del mundo de Nintendo.',
+        price: 40000,
+    },
 
     // ── CHIBI ──────────────────────────────────────────────────────
     {
