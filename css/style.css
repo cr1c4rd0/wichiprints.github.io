@@ -995,15 +995,15 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
    ORDER SUMMARY
 ══════════════════════════════════════ */
 
-        *,
-        *::before,
-        *::after {
+        .order-summary-page *,
+        .order-summary-page *::before,
+        .order-summary-page *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        body {
+        body.order-summary-page {
             font-family: 'Inter', sans-serif;
             background: #f0f2fb;
             color: #111;
@@ -1031,7 +1031,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
             flex: 1;
         }
 
-        .btn {
+        .order-summary-page .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -1556,7 +1556,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
 
         /* ── PRINT STYLES ── */
         @media print {
-            body {
+            body.order-summary-page {
                 background: #fff;
                 padding: 0;
             }
