@@ -333,6 +333,20 @@ const products = [
         desc: '¡Chika chika! La WichiBall inspirada en Chikorita trae la frescura de la segunda generación. La hoja de su cabeza siempre verde, como el entusiasmo de los fans de Johto.',
         price: 35000,
     },
-
-
+    // ── CROCHET ────────────────────────────────────────────────────
+    {
+        id: 23,
+        title: 'Vivi - Final Fantasy IX',
+        category: 'crochet',
+        tag: 'Crochet',
+        images: [
+            'images/crochet/0001-Vivi/0-vivi.png',
+            'images/crochet/0001-Vivi/1-vivi.jpg',
+            'images/crochet/0001-Vivi/2-vivi.jpg',
+            'images/crochet/0001-Vivi/3-vivi.jpg',
+            'images/crochet/0001-Vivi/4-vivi.jpg',
+        ],
+        desc: 'Amigurumi de Vivi Ornitier de Final Fantasy IX. Tejido tipo crochet con gran detalle.',
+        price: 40000,
+    }
 ];
