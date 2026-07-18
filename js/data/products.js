@@ -13,7 +13,7 @@ const products = [
             'images/figuras/01_KIRBY_MAGIC/IMG_20260514_105010.jpg',
         ],
         desc: '¡Poyo! Figura de Kirby impresa en 3D. El héroe rosado de Dream Land en su versión más adorable y compacta. Perfecta para coleccionistas y fans del mundo de Nintendo.',
-        price: 35000,
+        price: 40000,
     },
 
     // ── CHIBI ──────────────────────────────────────────────────────
