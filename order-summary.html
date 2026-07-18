@@ -710,6 +710,10 @@
                         <span id="discountLineLabel"></span>
                         <span id="discountLineAmount"></span>
                     </div>
+                    <div class="total-line shipping-line" id="shippingLine" style="display:none">
+                        <span>Costo de envío</span>
+                        <span id="shippingLineAmount"></span>
+                    </div>
                     <div class="total-line final-line">
                         <span class="total-bar-label" id="totalLabel">Total estimado del pedido</span>
                         <span class="total-bar-amount" id="invoiceTotal"></span>
@@ -853,19 +857,40 @@
         else if (grandTotal >= 200000) discountPct = 5;
 
         const discountAmount = Math.round(grandTotal * discountPct / 100);
-        const finalTotal = grandTotal - discountAmount;
+        let finalTotal = grandTotal - discountAmount;
+
+        // Shipping logic
+        let totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+        let shippingCost = 0;
+        let shippingText = '';
+
+        if (finalTotal >= 150000) {
+            shippingCost = 0;
+            shippingText = 'Gratis';
+        } else {
+            shippingCost = (totalQty === 1) ? 18000 : 22000;
+            shippingText = formatPrice(shippingCost);
+        }
+
+        finalTotal += shippingCost;
+
+        if (discountPct > 0 || shippingCost >= 0) {
+            document.getElementById('subtotalLine').style.display = 'flex';
+            document.getElementById('invoiceSubtotal').textContent = formatPrice(grandTotal);
+            document.getElementById('totalLabel').textContent = 'Total a pagar';
+        }
 
         if (discountPct > 0) {
             document.getElementById('discountBanner').style.display = 'inline-flex';
             document.getElementById('discountBannerText').textContent =
                 `¡Descuento del ${discountPct}% aplicado automáticamente!`;
-            document.getElementById('subtotalLine').style.display = 'flex';
-            document.getElementById('invoiceSubtotal').textContent = formatPrice(grandTotal);
             document.getElementById('discountLine').style.display = 'flex';
             document.getElementById('discountLineLabel').textContent = `Descuento ${discountPct}%`;
             document.getElementById('discountLineAmount').textContent = `− ${formatPrice(discountAmount)}`;
-            document.getElementById('totalLabel').textContent = 'Total a pagar';
         }
+
+        document.getElementById('shippingLine').style.display = 'flex';
+        document.getElementById('shippingLineAmount').textContent = shippingText;
 
         document.getElementById('invoiceTotal').textContent = formatPrice(finalTotal);
 
@@ -892,6 +917,9 @@
             });
             if (discountPct > 0) {
                 msg += `🏷️ *Descuento ${discountPct}%: − ${formatPrice(discountAmount)}*\n`;
+            }
+            if (shippingText) {
+                msg += `🚚 *Envío: ${shippingText}*\n`;
             }
             msg += `💳 *TOTAL A PAGAR: ${formatPrice(finalTotal)}*\n\n¿Me pueden confirmar disponibilidad y tiempo de entrega? 😊`;
             window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');

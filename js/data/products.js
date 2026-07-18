@@ -346,7 +346,7 @@ const products = [
             'images/pokeballs/0026-Mega-Raichu Y/1770062562712.jpg',
         ],
         desc: '¡Raichu evoluciona! La WichiBall inspirada en Mega-Raichu Y. Impresa en 3D con gran detalle.',
-        price: 35000,
+        price: 40000,
     },
     {
         id: 27,
@@ -525,7 +525,37 @@ const products = [
             'images/pokeballs/0096-Mega-Gengar/1770940604929.jpg',
         ],
         desc: '¡Gengar evoluciona! La WichiBall inspirada en Mega-Gengar. Impresa en 3D con gran detalle.',
+        price: 40000,
+    },
+    {
+        id: 43,
+        title: 'Charmeleon',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0005-Charmeleon/1-Charmeleon.png',
+            'images/pokeballs/0005-Charmeleon/IMG_20260715_185631.jpg',
+            'images/pokeballs/0005-Charmeleon/IMG_20260715_185638.jpg',
+            'images/pokeballs/0005-Charmeleon/IMG_20260715_185645.jpg',
+            'images/pokeballs/0005-Charmeleon/IMG_20260715_185654.jpg',
+        ],
+        desc: '¡Charmeleon! La WichiBall inspirada en Charmeleon. Impresa en 3D con gran detalle.',
         price: 35000,
+    },
+    {
+        id: 44,
+        title: 'Charizard',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0006-Charizard/1-Charizard.png',
+            'images/pokeballs/0006-Charizard/IMG_20260715_140408.jpg',
+            'images/pokeballs/0006-Charizard/IMG_20260715_140414.jpg',
+            'images/pokeballs/0006-Charizard/IMG_20260715_140426.jpg',
+            'images/pokeballs/0006-Charizard/IMG_20260715_140446.jpg',
+        ],
+        desc: '¡Charizard! La WichiBall inspirada en Charizard. Impresa en 3D con gran detalle.',
+        price: 40000,
     },
     // ── CROCHET ────────────────────────────────────────────────────
     {
@@ -631,5 +661,27 @@ const products = [
         ],
         desc: 'Amigurumi de Snorlax. Tejido tipo crochet con gran detalle.',
         price: 40000,
+    },
+    {
+        id: 45,
+        title: 'Llavero Samus',
+        category: 'llaveros',
+        tag: 'Llavero',
+        images: [
+            'images/llaveros/0001-Samus.jpg'
+        ],
+        desc: 'Llavero inspirado en Samus Aran. Impreso en 3D con excelente detalle y durabilidad.',
+        price: 5000,
+    },
+    {
+        id: 46,
+        title: 'Llavero Zelda',
+        category: 'llaveros',
+        tag: 'Llavero',
+        images: [
+            'images/llaveros/0002-Zelda.jpg'
+        ],
+        desc: 'Llavero inspirado en The Legend of Zelda. Impreso en 3D con excelente detalle y durabilidad.',
+        price: 5000,
     }
 ];
