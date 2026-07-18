@@ -30,6 +30,20 @@ const products = [
         desc: '¡Poyo! Figura de Kirby transformado en Link impresa en 3D. Perfecta para coleccionistas y fans del mundo de Nintendo.',
         price: 40000,
     },
+    {
+        id: 48,
+        title: 'Sheng Long',
+        category: 'figures',
+        tag: 'Figura',
+        images: [
+            'images/figuras/0003-Sheng long/1-ShengLong.png',
+            'images/figuras/0003-Sheng long/IMG_20260718_161346.jpg',
+            'images/figuras/0003-Sheng long/IMG_20260718_161354.jpg',
+            'images/figuras/0003-Sheng long/IMG_20260718_161429.jpg',
+        ],
+        desc: 'Figura de Sheng Long de Dragon Ball impresa en 3D. Un coleccionable increíble con gran nivel de detalle.',
+        price: 70000,
+    },
 
     // ── CHIBI ──────────────────────────────────────────────────────
     {
