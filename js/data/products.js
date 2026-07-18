@@ -348,5 +348,20 @@ const products = [
         ],
         desc: 'Amigurumi de Vivi Ornitier de Final Fantasy IX. Tejido tipo crochet con gran detalle.',
         price: 40000,
+    },
+    {
+        id: 24,
+        title: 'Moguri - Final Fantasy IX',
+        category: 'crochet',
+        tag: 'Crochet',
+        images: [
+            'images/crochet/0002-Moguri/1.png',
+            'images/crochet/0002-Moguri/IMG_20260108_181554.jpg',
+            'images/crochet/0002-Moguri/IMG_20260108_181604.jpg',
+            'images/crochet/0002-Moguri/IMG_20260108_181610.jpg',
+            'images/crochet/0002-Moguri/IMG_20260108_181617.jpg',
+        ],
+        desc: 'Amigurumi de Moguri (Moogle) de Final Fantasy IX. ¡Kupó! Tejido tipo crochet con gran detalle.',
+        price: 40000,
     }
 ];
