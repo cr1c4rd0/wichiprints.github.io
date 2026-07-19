@@ -25,7 +25,7 @@
             </button>
             <div class="spacer"></div>
             <button class="btn btn-wa" onclick="sendCartToWA()">
-                <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                <i class="fab fa-whatsapp"></i> Confirmar orden
             </button>
             <button class="btn btn-print" onclick="window.print()">
                 <i class="fas fa-file-pdf"></i> Guardar / Imprimir PDF
@@ -236,7 +236,7 @@
             shippingCost = 0;
             shippingText = 'Gratis';
         } else {
-            shippingCost = (totalQty === 1) ? 18000 : 22000;
+            shippingCost = 22000;
             shippingText = formatPrice(shippingCost);
         }
 
