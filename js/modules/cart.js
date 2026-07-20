@@ -69,6 +69,11 @@ function updateCartBadge() {
     const total = cart.reduce((sum, item) => sum + item.qty, 0);
     badge.textContent = total;
     badge.style.display = total > 0 ? 'flex' : 'none';
+    if (total > 0) {
+        badge.style.animation = 'none';
+        badge.offsetHeight; // trigger reflow
+        badge.style.animation = '';
+    }
 }
 
 function openCart() {

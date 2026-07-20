@@ -40,7 +40,7 @@ function renderCards(filter, search) {
         const badgeClass = `badge-${p.category || 'default'}`;
 
         return `
-        <div class="col-sm-6 col-lg-4 col-xl-3" style="animation-delay:${i * 0.08}s">
+        <div class="col-sm-6 col-lg-4 col-xl-3" style="animation-delay:${i * 0.06}s">
             <div class="card product-card h-100" data-category="${p.category}" onclick="openModal(${p.id})">
                 <div class="card-img-wrap">${imgContent}</div>
                 <div class="card-body d-flex flex-column">
@@ -48,9 +48,10 @@ function renderCards(filter, search) {
                     <h5 class="card-title">${p.title}</h5>
                     <p class="card-text flex-grow-1">${p.desc}</p>
                     ${p.price != null ? `<div class="product-price mt-2">${formatPrice(p.price)}</div>` : ''}
-                    <button class="btn btn-add-cart mt-3 w-100"
-                            onclick="event.stopPropagation(); addToCart(${p.id})">
-                        <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+                    <button class="btn btn-add-cart mt-auto w-100 py-2"
+                            onclick="event.stopPropagation(); addToCart(${p.id})"
+                            aria-label="Agregar ${p.title} al carrito">
+                        <i class="fas fa-cart-plus me-2"></i>Agregar
                     </button>
                 </div>
             </div>
