@@ -744,7 +744,7 @@ const products = [
         price: 5000,
     },
     {
-        id: 47,
+        id: 48,
         title: 'Mega-Charizard Y',
         category: 'pokemon',
         tag: 'WichiBall',
