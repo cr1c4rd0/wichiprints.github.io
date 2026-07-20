@@ -586,6 +586,36 @@ const products = [
         desc: '¡Charizard! La WichiBall inspirada en Charizard. Impresa en 3D con gran detalle.',
         price: 40000,
     },
+    {
+        id: 49,
+        title: 'Tangela',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0114-Tangela/1-Tangela.png',
+            'images/pokeballs/0114-Tangela/IMG_20260720_100658.jpg',
+            'images/pokeballs/0114-Tangela/IMG_20260720_100704.jpg',
+            'images/pokeballs/0114-Tangela/IMG_20260720_100710.jpg',
+            'images/pokeballs/0114-Tangela/IMG_20260720_100715.jpg',
+        ],
+        desc: '¡Tangela! La WichiBall inspirada en Tangela. Impresa en 3D con gran detalle.',
+        price: 35000,
+    },
+    {
+        id: 50,
+        title: 'Mega-Charizard X',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0006-Mega-Charizar X/1-Mega-Charizard X.png',
+            'images/pokeballs/0006-Mega-Charizar X/IMG_20260720_100911.jpg',
+            'images/pokeballs/0006-Mega-Charizar X/IMG_20260720_100920.jpg',
+            'images/pokeballs/0006-Mega-Charizar X/IMG_20260720_100930.jpg',
+            'images/pokeballs/0006-Mega-Charizar X/IMG_20260720_100940.jpg',
+        ],
+        desc: '¡Charizard evoluciona! La WichiBall inspirada en Mega-Charizard X. Impresa en 3D con gran detalle.',
+        price: 40000,
+    },
     // ── CROCHET ────────────────────────────────────────────────────
     {
         id: 23,
