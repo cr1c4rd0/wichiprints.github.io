@@ -128,8 +128,10 @@
     <section class="hero">
         <div class="container">
             <h1 class="mb-2">Catálogo <span class="gradient-text">Wichi Prints</span></h1>
-            <p class="mb-0">Objetos únicos impresos en 3D. Elige tu producto, indica la cantidad y escríbenos por
-                WhatsApp.</p>
+            <p class="mb-3">Objetos únicos impresos en 3D. Elige tu producto, indica la cantidad y escríbenos por WhatsApp.</p>
+            <button class="btn btn-outline-light px-4 py-2 rounded-pill shadow-sm mt-2 fw-semibold" style="border-width: 2px;" onclick="openRequestModal()">
+                <i class="fas fa-magic me-2"></i>Solicitar Impresión
+            </button>
         </div>
     </section>
 
@@ -174,6 +176,43 @@
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <!-- ── REQUEST MODAL ── -->
+    <div class="modal fade" id="requestModal" tabindex="-1" aria-labelledby="requestModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="requestModalTitle">Solicitar Impresión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted small mb-4">
+                        ¿No encuentras lo que buscas en el catálogo? ¡Solicítalo! 
+                        Selecciona un Pokémon o Arma de las listas, déjanos tu correo y nos comunicaremos contigo.
+                    </p>
+                    <div class="mb-3">
+                        <label for="reqPokemon" class="form-label fw-bold">WichiBall</label>
+                        <select id="reqPokemon" class="form-select border-2">
+                            <option value="">Cargando Pokémon...</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reqArmeria" class="form-label fw-bold">Armería</label>
+                        <select id="reqArmeria" class="form-select border-2">
+                            <option value="">Cargando Armería...</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="reqEmail" class="form-label fw-bold">Tu Correo Electrónico</label>
+                        <input type="email" id="reqEmail" class="form-control border-2" placeholder="ejemplo@correo.com">
+                    </div>
+                    <button type="button" class="btn btn-success w-100 py-2 fw-bold shadow-sm" onclick="submitRequest()" style="background: var(--green-wa, #25D366); border: none;">
+                        <i class="fab fa-whatsapp me-2"></i>Confirmar solicitud
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -243,6 +282,7 @@
     <script src="js/modules/whatsapp.js"></script>
     <script src="js/modules/catalog.js"></script>
     <script src="js/modules/modal.js"></script>
+    <script src="js/modules/request.js"></script>
     <script src="js/modules/cart.js"></script>
     <script src="js/main.js"></script>
 
