@@ -238,8 +238,24 @@
             return p.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
         }
 
-        const cart = JSON.parse(localStorage.getItem('wichiCart') || '[]');
-        if (cart.length === 0) window.location.href = 'index.html';
+        function escapeHTML(str) {
+            if (typeof str !== 'string') return str;
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            }[tag] || tag));
+        }
+
+        let cart = [];
+        try {
+            cart = JSON.parse(localStorage.getItem('wichiCart') || '[]');
+            if (!Array.isArray(cart)) cart = [];
+        } catch (e) {
+            console.error('Error parsing wichiCart:', e);
+        }
+
+        if (cart.length === 0) {
+            window.location.href = 'index.html';
+        } else {
 
         // Date
         document.getElementById('invoiceDate').textContent = new Date().toLocaleDateString('es-CO', {
@@ -260,8 +276,8 @@
                     <div class="product-cell">
                         ${thumb}
                         <div>
-                            <div class="product-name">${item.title}</div>
-                            <div class="product-cat">${item.tag || item.category}</div>
+                            <div class="product-name">${escapeHTML(item.title)}</div>
+                            <div class="product-cat">${escapeHTML(item.tag || item.category)}</div>
                         </div>
                     </div>
                 </td>
@@ -324,7 +340,7 @@
                     btn.innerHTML = '<i class="fas fa-copy"></i> Copiar';
                     btn.classList.remove('copied');
                 }, 2200);
-            });
+            }).catch(err => console.error('Error al copiar', err));
         }
 
         // Send to WhatsApp
@@ -368,6 +384,7 @@
             
             window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
+        } // end of else block for cart length check
     </script>
 </body>
 

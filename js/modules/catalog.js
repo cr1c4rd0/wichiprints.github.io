@@ -63,8 +63,10 @@ function searchProducts(term) {
 }
 
 function filterCards(category, btn) {
-    document.querySelectorAll('.cat-nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    document.querySelectorAll('.cat-nav-btn').forEach(b => {
+        if (b.dataset.cat === category) b.classList.add('active');
+        else b.classList.remove('active');
+    });
     renderCards(category, undefined);
 
     // cerrar nav en móvil

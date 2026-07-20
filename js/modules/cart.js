@@ -1,12 +1,25 @@
-let cart = JSON.parse(localStorage.getItem('wichiCart') || '[]');
+let cart = [];
+try {
+    cart = JSON.parse(localStorage.getItem('wichiCart') || '[]');
+    if (!Array.isArray(cart)) cart = [];
+} catch (e) {
+    console.error('Error parsing wichiCart:', e);
+}
 
-function addToCart(productId) {
+function escapeHTML(str) {
+    if (typeof str !== 'string') return str;
+    return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+    }[tag] || tag));
+}
+
+function addToCart(productId, qty = 1) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
 
     const existing = cart.find(item => item.id === productId);
     if (existing) {
-        existing.qty++;
+        existing.qty += qty;
     } else {
         cart.push({
             id: product.id,
@@ -16,7 +29,7 @@ function addToCart(productId) {
             images: product.images,
             icon: product.icon,
             price: product.price,
-            qty: 1
+            qty: qty
         });
     }
 
@@ -89,14 +102,14 @@ function renderCartItems() {
 
     itemsEl.innerHTML = cart.map(item => {
         const imgHtml = item.images?.length
-            ? `<img src="${item.images[0]}" alt="${item.title}">`
+            ? `<img src="${item.images[0]}" alt="${escapeHTML(item.title)}">`
             : `<div class="cart-item-placeholder">${item.icon || '🖨️'}</div>`;
 
         return `
         <div class="cart-item">
             <div class="cart-item-img">${imgHtml}</div>
             <div class="cart-item-info">
-                <div class="cart-item-title">${item.title}</div>
+                <div class="cart-item-title">${escapeHTML(item.title)}</div>
                 ${item.price != null ? `<div class="cart-item-price">${formatPrice(item.price)}</div>` : ''}
                 <div class="cart-qty-ctrl">
                     <button class="cart-qty-btn" onclick="updateCartQty(${item.id}, -1)">−</button>

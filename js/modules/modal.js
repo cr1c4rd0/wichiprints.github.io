@@ -31,7 +31,7 @@ function openModal(id) {
 function addToCartFromModal() {
     if (!currentProduct) return;
     const qty = parseInt(document.getElementById('qtyInput').value) || 1;
-    for (let i = 0; i < qty; i++) addToCart(currentProduct.id);
+    addToCart(currentProduct.id, qty);
     bsModal.hide();
 }
 

@@ -33,8 +33,8 @@ function buildGallery(images, icon = '🖨️') {
 }
 
 function slideGallery(dir) {
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots   = document.querySelectorAll('.gallery-dot');
+    const slides = document.querySelectorAll('#modalGallery .gallery-slide');
+    const dots   = document.querySelectorAll('#modalGallery .gallery-dot');
     slides[currentSlide].classList.remove('active');
     dots[currentSlide]?.classList.remove('active');
     currentSlide = (currentSlide + dir + slides.length) % slides.length;
@@ -43,8 +43,8 @@ function slideGallery(dir) {
 }
 
 function goSlide(index) {
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots   = document.querySelectorAll('.gallery-dot');
+    const slides = document.querySelectorAll('#modalGallery .gallery-slide');
+    const dots   = document.querySelectorAll('#modalGallery .gallery-dot');
     slides[currentSlide].classList.remove('active');
     dots[currentSlide]?.classList.remove('active');
     currentSlide = index;
