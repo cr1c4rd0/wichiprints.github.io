@@ -1627,3 +1627,39 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-body); color: var(
             }
         }
     
+/* User Form in Order Summary */
+.user-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+@media (max-width: 600px) {
+    .user-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color, #1a202c);
+}
+.form-group input, .form-group select {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: #fff;
+    color: var(--text-color, #1a202c);
+    transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color, #ff6b6b);
+}

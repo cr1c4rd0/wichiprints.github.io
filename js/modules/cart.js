@@ -141,7 +141,6 @@ function showAddedToast(title) {
 
 function goToCheckout() {
     if (cart.length === 0) return;
-    sendCartToWhatsApp();
     window.location.href = 'order-summary.html';
 }
 

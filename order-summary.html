@@ -47,6 +47,50 @@
                 </div>
             </div>
 
+            <!-- User Data -->
+            <div class="invoice-section">
+                <div class="section-label">Datos de envío y facturación</div>
+                <div class="user-form-grid">
+                    <div class="form-group">
+                        <label for="userName">Nombre completo *</label>
+                        <input type="text" id="userName" placeholder="Ej. Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userDocType">Tipo de documento *</label>
+                        <select id="userDocType" required>
+                            <option value="CC">Cédula de Ciudadanía (CC)</option>
+                            <option value="CE">Cédula de Extranjería (CE)</option>
+                            <option value="NIT">NIT</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userDocId">Número de documento *</label>
+                        <input type="text" id="userDocId" placeholder="Ej. 1020304050" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhone">Celular *</label>
+                        <input type="tel" id="userPhone" placeholder="Ej. 300 123 4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Correo electrónico *</label>
+                        <input type="email" id="userEmail" placeholder="ejemplo@correo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userAddress">Dirección de envío *</label>
+                        <input type="text" id="userAddress" placeholder="Ej. Calle 123 # 45 - 67" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userDept">Departamento *</label>
+                        <input type="text" id="userDept" placeholder="Ej. Antioquia" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userCity">Ciudad *</label>
+                        <input type="text" id="userCity" placeholder="Ej. Medellín" required>
+                    </div>
+                </div>
+            </div>
+
             <!-- Products -->
             <div class="invoice-section">
                 <div class="section-label">Productos del pedido</div>
@@ -277,7 +321,30 @@
 
         // Send to WhatsApp
         function sendCartToWA() {
-            let msg = `Hola Wichi Prints! 👋\n\nQuiero hacer el siguiente pedido:\n\n`;
+            const name = document.getElementById('userName').value.trim();
+            const docType = document.getElementById('userDocType').value;
+            const docId = document.getElementById('userDocId').value.trim();
+            const phone = document.getElementById('userPhone').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            const address = document.getElementById('userAddress').value.trim();
+            const dept = document.getElementById('userDept').value.trim();
+            const city = document.getElementById('userCity').value.trim();
+
+            if (!name || !docId || !phone || !email || !address || !dept || !city) {
+                alert("Por favor, completa todos los datos de envío y facturación antes de confirmar.");
+                return;
+            }
+
+            let msg = `Hola Wichi Prints! 👋\n\nAquí tienes los datos de mi pedido:\n\n`;
+            msg += `👤 *DATOS DEL CLIENTE*\n`;
+            msg += `- Nombre: ${name}\n`;
+            msg += `- Documento: ${docType} ${docId}\n`;
+            msg += `- Celular: ${phone}\n`;
+            msg += `- Correo: ${email}\n`;
+            msg += `- Dirección: ${address}\n`;
+            msg += `- Ciudad/Depto: ${city}, ${dept}\n\n`;
+
+            msg += `🛒 *DETALLE DEL PEDIDO*\n`;
             cart.forEach((item, i) => {
                 msg += `${i + 1}. 🖨️ *${item.title}*\n   🔢 Cantidad: *${item.qty}*`;
                 if (item.price != null) msg += `\n   💰 Subtotal: *${formatPrice(item.price * item.qty)}*`;
@@ -290,6 +357,7 @@
                 msg += `🚚 *Envío: ${shippingText}*\n`;
             }
             msg += `💳 *TOTAL A PAGAR: ${formatPrice(finalTotal)}*\n\n¿Me pueden confirmar disponibilidad y tiempo de entrega? 😊`;
+            
             window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
         }
     </script>
