@@ -742,5 +742,20 @@ const products = [
         ],
         desc: 'Llavero inspirado en The Legend of Zelda. Impreso en 3D con excelente detalle y durabilidad.',
         price: 5000,
+    },
+    {
+        id: 47,
+        title: 'Mega-Charizard Y',
+        category: 'pokemon',
+        tag: 'WichiBall',
+        images: [
+            'images/pokeballs/0006-Mega-Charizard Y/1-Mega-Charizard Y.png',
+            'images/pokeballs/0006-Mega-Charizard Y/IMG_20260720_161143.jpg',
+            'images/pokeballs/0006-Mega-Charizard Y/IMG_20260720_161152.jpg',
+            'images/pokeballs/0006-Mega-Charizard Y/IMG_20260720_161201.jpg',
+            'images/pokeballs/0006-Mega-Charizard Y/IMG_20260720_161209.jpg'
+        ],
+        desc: '¡Mega-Charizard Y! WichiBall de la increíble megaevolución de Charizard tipo Fuego/Volador. Impresa en 3D con gran detalle.',
+        price: 40000,
     }
 ];
