@@ -34,6 +34,7 @@ function openRequestModal() {
     // Reset fields
     document.getElementById('reqPokemon').value = '';
     document.getElementById('reqArmeria').value = '';
+    document.getElementById('reqOtros').value = '';
     document.getElementById('reqEmail').value = '';
 
     requestBsModal.show();
@@ -42,10 +43,11 @@ function openRequestModal() {
 function submitRequest() {
     const pokemon = document.getElementById('reqPokemon').value.trim();
     const armeria = document.getElementById('reqArmeria').value.trim();
+    const otros = document.getElementById('reqOtros').value.trim();
     const email = document.getElementById('reqEmail').value.trim();
 
-    if (!pokemon && !armeria) {
-        alert('Por favor selecciona al menos un Pokémon o un artículo de Armería.');
+    if (!pokemon && !armeria && !otros) {
+        alert('Por favor selecciona un Pokémon, Armería o cuéntanos tu idea en "Otros".');
         return;
     }
 
@@ -64,6 +66,9 @@ function submitRequest() {
     }
     if (armeria) {
         msg += `⚔️ *Armería:* ${armeria}\n`;
+    }
+    if (otros) {
+        msg += `💡 *Otros (Idea):* ${otros}\n`;
     }
 
     msg += `📧 *Mi correo:* ${email}\n\n`;
